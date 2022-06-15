@@ -12,9 +12,9 @@ let esce = `
 Hai ${ye} Lagi Nyari Sc Ya? 
 
 Nih Link Sc Nya Dibawah :
-https://youtu.be/AXPzjQ5jxx8
+https://cararegistrasi.com/s9gzDY
 
-_*Jangan Lupa Di Subscribe*_`
+_*Kenapa Make Semawur? Biar Gw Dapet Cuan Banh😅☝🏻*_`
 conn.sendBut(m.chat, esce, wm3, 'Thanks', 'thanks', m) 
 }
 handler.help = ['sc', 'sourcecode']
