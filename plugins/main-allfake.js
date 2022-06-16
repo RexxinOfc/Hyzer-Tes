@@ -139,9 +139,9 @@ const fgclink = {
 	"message": {
 		"groupInviteMessage": {
 			"groupJid": "0-1625305606@g.us",
-			"inviteCode": "mememteeeekkeke",
-			"groupName": "Mengter", 
-            "caption": "Halo bang jagoo", 
+			"inviteCode": "https://chat.whatsapp.com/BXRH5ApRnbaHm6ULbPuG4d",
+			"groupName": "Bot Wangsaf", 
+            "caption": "Halo Banh", 
             'jpegThumbnail': fs.readFileSync('./media/siang.jpg')
 		}
 	}
