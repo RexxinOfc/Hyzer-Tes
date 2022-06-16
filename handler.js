@@ -701,10 +701,11 @@ module.exports = {
                 if (chat.welcome) {
                     let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                     for (let user of participants) {
-                       let pp = './src/welcome.jpg'
+                        let pp = 'https://telegra.ph/file/2d06f0936842064f6b3bb.png'
                         try {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
+
                         } finally {
                             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
                                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user))
@@ -722,7 +723,7 @@ module.exports = {
                                 groupname: await this.getName(id),
                                 membercount: groupMetadata.participants.length
                             })
-                            await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'Welkom Dek' : 'Bye Dek', action === 'add' ? 'sip' : 'FokusID')
+                            await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'Welkom Dek' : 'Bye Dek', action === 'add' ? '.intro' : 'FokusID')
                         }
                     }
                 }
