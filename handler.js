@@ -706,10 +706,24 @@ module.exports = {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
                         } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Yah,si Beban Masuk Grup').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
-                                (chat.sBye || this.bye || conn.bye || 'Sip, Beban Berkurang 1'))
-                                this.sendButtonImg(id, pp, text, "Group Message", "Hi Beban 👋", "wkwk", null)
-                                }
+                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
+                                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user))
+                            let wel = API('males', '/welcome2', {
+                                profile: pp,
+                                username: await this.getName(user),
+                                background: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
+                                groupname: await this.getName(id),
+                                membercount: groupMetadata.participants.length
+                            })
+                            let lea = API('males', '/goodbye2', {
+                                profile: pp,
+                                username: await this.getName(user),
+                                background: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
+                                groupname: await this.getName(id),
+                                membercount: groupMetadata.participants.length
+                            })
+                            await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'Welkom Dek' : 'Bye Dek', action === 'add' ? '.intro' : 'FokusID')
+                        }
                     }
                 }
                 break
